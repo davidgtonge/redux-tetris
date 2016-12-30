@@ -1,0 +1,44 @@
+{
+  "name": "functional-tetris",
+  "version": "1.0.0",
+  "description": "Tetris clone with Ramda, Redux & React",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "mocha -w",
+    "build": "react build src/index.js build",
+    "start": "serve ./build --single",
+    "dev": "react src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "keymaster": "^1.6.2",
+    "lodash.random": "^3.2.0",
+    "ramda": "^0.22.1",
+    "react": "^15.4.1",
+    "react-key-handler": "^0.3.0",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-logger": "^2.7.4",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "@mft/eslint-config-momentumft": "^0.2.2",
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-es2016": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "eslint": "^3.2.2",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-react": "^6.8.0",
+    "mocha": "^3.0.1",
+    "nwb": "^0.13.7",
+    "serve": "^2.1.2",
+    "sinon": "^1.17.5"
+  }
+}
