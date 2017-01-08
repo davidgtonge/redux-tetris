@@ -1,3 +1,4 @@
+import "bootswatch/cosmo/bootstrap.css"
 import React from "react"
 import { render } from "react-dom"
 import { Provider } from "react-redux"
@@ -19,7 +20,7 @@ const store = createStore(
 
 window.setInterval(() => {
   store.dispatch(tick())
-}, 1000)
+}, 1000 / 60)
 
 setupKeys(store.dispatch)
 

@@ -2,9 +2,17 @@ const {deepEqual} = require("assert")
 const shapes = require("../src/shapes")
 const rotate = require("../src/rotate")
 
+const toArray = (array) => array.reduce(
+  (memo, item) => {
+    memo[item.idx] = item.val
+    return memo
+  },
+  []
+)
+
 describe("rotation", () => {
   it("rotates 90 - L (1)", () => {
-    deepEqual(rotate(shapes.I.shape), [
+    deepEqual(toArray(rotate(shapes.I.shape)), [
       1, 1, 1, 1,
       0, 0, 0, 0,
       0, 0, 0, 0,
@@ -13,7 +21,7 @@ describe("rotation", () => {
   })
 
   it("rotates 90 - L (2)", () => {
-    deepEqual(rotate(rotate(shapes.I.shape)), [
+    deepEqual(toArray(rotate(rotate(shapes.I.shape))), [
       0, 0, 0, 1,
       0, 0, 0, 1,
       0, 0, 0, 1,
@@ -22,7 +30,7 @@ describe("rotation", () => {
   })
 
   it("rotates 90 - L (3)", () => {
-    deepEqual(rotate(rotate(rotate(shapes.I.shape))), [
+    deepEqual(toArray(rotate(rotate(rotate(shapes.I.shape)))), [
       0, 0, 0, 0,
       0, 0, 0, 0,
       0, 0, 0, 0,
@@ -38,20 +46,13 @@ describe("rotation", () => {
   })
 
   it("rotates square", () => {
-    const square = [
-      1, 1,
-      1, 1,
-    ]
-    deepEqual(rotate(square), square)
+    const square = shapes.O.shape
+    deepEqual(toArray(rotate(square)), toArray(square))
   })
 
   it("rotates T", () => {
-    const T = [
-      0, 0, 0,
-      1, 1, 1,
-      0, 1, 0,
-    ]
-    deepEqual(rotate(T), [
+    const T = shapes.T.shape
+    deepEqual(toArray(rotate(T)), [
       0, 1, 0,
       1, 1, 0,
       0, 1, 0,

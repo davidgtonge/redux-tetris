@@ -1,3 +1,5 @@
+import R from "ramda"
+
 const I = {
   color: "cyan",
   shape: [
@@ -53,7 +55,7 @@ const T = {
 }
 
 const Z = {
-  color: "purple",
+  color: "red",
   shape: [
     0, 0, 0,
     1, 1, 0,
@@ -61,6 +63,13 @@ const Z = {
   ],
 }
 
+const toObjs = (array) => array.map((val, idx) => {
+  return {val, idx}
+})
+
+
+const mapFn = R.over(R.lensProp("shape"), toObjs)
+
 const shapes = {I, J, L, O, S, T, Z}
 
-module.exports = shapes
+module.exports = R.map(mapFn, shapes)
