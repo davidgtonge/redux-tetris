@@ -1,5 +1,5 @@
 {
-  "name": "functional-tetris",
+  "name": "redux-tetris",
   "version": "1.0.0",
   "description": "Tetris clone with Ramda, Redux & React",
   "main": "src/index.js",
