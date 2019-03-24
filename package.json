@@ -8,7 +8,8 @@
     "test:watch": "mocha -w",
     "build": "react build src/index.js build",
     "start": "serve ./build --single",
-    "dev": "react run src/index.js"
+    "dev": "react run src/index.js",
+    "now-build": "npm run build"
   },
   "author": "",
   "license": "ISC",
