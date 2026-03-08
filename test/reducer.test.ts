@@ -165,8 +165,9 @@ describe("tick pipeline", () => {
       18,
     );
     const next = reducer(state, tick());
-    expect(next.block).toEqual(emptyBlock);
     expect(next.board.some((cell) => cell === "yellow")).toBe(true);
+    expect(next.block.shape.length).toBeGreaterThan(0);
+    expect(next.block.color).not.toBe("");
   });
 
   it("declares game over when spawn is blocked", () => {

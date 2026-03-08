@@ -144,7 +144,7 @@ export const mergeBoardAndBlock = ({ board, block }: GameState): Board => {
     R.pluck("newIdx"),
     R.map(getPosition(size, block.x, block.y)),
     R.pluck("idx"),
-    R.reject(R.propEq("val", 0)),
+    R.reject(R.propEq(0, "val")),
   )(block.shape);
 };
 
@@ -190,9 +190,9 @@ const clearRows = (state: GameState): GameState => {
   return R.mergeRight(state, { board, score });
 };
 
-const skipIfEmptyBlock = R.ifElse(R.propEq("block", emptyBlock), R.identity);
+const skipIfEmptyBlock = R.ifElse(R.propEq(emptyBlock, "block"), R.identity);
 
-const runIfEmptyBlock = R.ifElse(R.propEq("block", emptyBlock), R.__, R.identity);
+const runIfEmptyBlock = R.ifElse(R.propEq(emptyBlock, "block"), R.__, R.identity);
 
 const skipOnPaused = (handler: ReducerHandler): ReducerHandler => (state, action) =>
   state.paused ? state : handler(state, action);
@@ -201,7 +201,7 @@ const slow =
   (handler: ReducerHandler): ReducerHandler =>
   (state) =>
     R.cond([
-      [R.propEq("paused", true), R.identity],
+      [R.propEq(true, "paused"), R.identity],
       [(s: GameState) => s.counter % s.gamespeed === 0, handler],
       [R.T, R.identity],
     ])(state);
